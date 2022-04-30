@@ -1,0 +1,16 @@
+Django
+channels
+channels-redis
+psycopg2
+requests
+atlassian-python-api
+bs4
+lxml
+django_clickhouse
+django-ckeditor
+ldap3
+django-multiselectfield
+django-environ
+beatserver
+transliterate
+openpyxl

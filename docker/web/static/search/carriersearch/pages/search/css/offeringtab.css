@@ -1,0 +1,54 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2012-2020. All rights reserved.
+ */
+
+@charset "utf-8";
+/* CSS Document */
+#moreCategory{ padding:0; margin:10px 0 0 0; }
+.cate-top-menu{ margin:0; padding:0 20px; text-align:left; height:30px; }
+ul.spt-cate-ul{ margin-top:20px; margin-bottom: 30px;padding:0; height:28px; list-style:none;}
+ul.spt-cate-ul li{display:inline-block;margin:0 10px 0 0;list-style:none;  zoom: 1; font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; background: #ffffff;border:1px solid #ccc;border-radius: 4px;}
+ul.spt-cate-ul li a{color:#666; text-decoration:none;font-size:14px; display: inline-block; height:28px; line-height:28px; padding: 0 20px;}
+ul.spt-cate-ul li:hover{border: 1px solid #007dff;background: #e5f2ff;box-shadow:0px 2px 8px 0px RGBA(0,86,176,0.15);}
+ul.spt-cate-ul li:hover a{color:#007dff;}
+ul.spt-cate-ul li.cur{ border: 1px solid #007dff;background: #e5f2ff;}
+ul.spt-cate-ul li.cur a{color:#007dff;}
+
+.clearboth{ clear:both;}
+
+#moreCategory .categoryBottom{border-top: 1px solid #cde3fa;}
+
+#categoryContentDiv { margin: 0; padding-left: 22px; padding-top: 22px;}
+#categoryContentDiv ul{overflow:auto;list-style:none;}
+
+#categoryContentDiv ul li.more a{ background: url('../img/newui/detail.png') no-repeat right center; width: 45px; display: inline-block;color: #007dff;}
+
+
+.categoryNameUl{padding:0px 0;overflow:auto;}
+.categoryNameUl li{ display:inline-block;max-width:176px;height: 40px; line-height: 40px;padding: 0 20px; text-align: left;white-space:nowrap; overflow: hidden; text-overflow: ellipsis;}
+.categoryNameUl li.curLi{border-bottom: solid 2px #007dff;background:none;}
+.categoryNameUl li a{text-decoration:none;color:#999999;font-size:14px;}
+.categoryNameUl li.curLi a{color:#007dff;font-weight: 900;}
+#categoryContentDiv ul li a{color:#333;font-size:14px; height:24px;line-height:24px;}
+.docProductUl li{ float: left; width: 18%; padding:0; margin-right: 15px; overflow: hidden; text-overflow: ellipsis; display: block; white-space: nowrap;}
+.docProductUl li img.iconGray{width:6px; height:6px;margin-right:8px;}
+.docProductUl li img.hdxImg{width:18px;margin-left:4px;}
+.docProductUl li img.detail{margin-left:4px;}
+
+.knowledgeProductUl li { height: 24px;font-size:12px;color:#333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.knowledgeProductUl li span{float:right;margin-right:28px;}
+.knowledgeProductUl li a{overflow:hidden;max-width:80%;display:inline-block;text-overflow: ellipsis;white-space: nowrap;}
+
+.softwareProductUl li { display:inline-block;font-size:12px;color:#333;width:45%;height: 24px;margin-right:10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+
+
+.toolProductUl li { display:inline-block;font-size:12px;color:#333;width:45%;height: 24px;margin-right:10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+
+
+.newsProductUl li { height: 24px;font-size:12px;color:#333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.newsProductUl li span{float:right;margin-right:28px;}
+.newsProductUl li a{color:#006699;overflow:hidden;max-width:80%;display:inline-block;text-overflow: ellipsis;}
+
+.mediaProductUl li { height: 24px;font-size:12px;color:#333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.mediaProductUl li span{float:right;margin-right:28px;}
+.mediaProductUl li a{color:#006699;overflow:hidden;max-width:80%;display:inline-block;text-overflow: ellipsis;}

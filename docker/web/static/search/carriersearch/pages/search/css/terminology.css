@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2012-2020. All rights reserved.
+ */
+
+@charset "utf-8";
+/* CSS Document */
+
+.termresultall{margin:0; padding:10px 15px 0 15px; height:auto; border:1px solid #ddd; width:auto; text-align:left;}
+.asList{margin:0 auto; padding:0; color:#333;}
+
+/* 下面是 术语样式 */
+.terms{ margin:0; padding:10px 0;}
+.terms-title{ margin:0; padding:0; margin-bottom:10px; font-size:14px; font-weight:bold; line-height:1.5;}
+.clr-999{color:#999;}
+.terms-desc{margin:0; padding:0; color:#666; font-size:12px; line-height:1.5; word-break:break-all;}
+.terms-ot-field,.terms-others,.terms-abbr{ margin:0; padding:0; margin-top:10px; color:#069; font-size:12px; line-height:1.5;}
+.terms-ot-field{ padding:0 10px 0 20px;}
+.terms-ot-details{ display:none;}
+.terms-ot-details p{ margin:0; margin-top:3px; padding:0 12px; line-height:1.5;}
+.terms-icon-zk{margin:0; padding:0; border:0; width:8px; height:8px; vertical-align:middle;}
+.terms-field-title{margin-left:3px; vertical-align:middle;}
+.terms-ot-title{cursor:pointer;}
+ul.ul-abrr{ margin:0; padding:0; list-style:none; width:720px; font-size:12px; border:1px solid #0000; height:18px; line-height:1.2;}
+.ul-abrr li{ margin:0; padding:5px 0; padding-left:10px; display:inline-block; *display: inline; zoom:1; width:340px; word-break:keep-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}

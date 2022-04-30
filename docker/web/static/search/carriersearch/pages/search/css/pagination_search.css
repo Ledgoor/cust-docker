@@ -1,0 +1,88 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2012-2020. All rights reserved.
+ */
+
+.pagination {
+	font-size: 14px;
+	margin: 0px;
+	float: right;
+	border: none;
+	border: medium none;
+	margin-right: -8px;
+}
+div.pagination a,div.pagination input{
+	display:block;
+	float: left;
+	height:32px; 
+	font-size:14px;
+	color:#2d2d2d;
+	line-height:32px;
+	padding:0px 12px;
+	margin-right:8px;
+	margin-bottom:8px;
+	background-color:#f5f7fa;
+	border-radius:2px;
+}
+div.pagination a.prev{
+	width:32px; 
+	background:url('../img/newui/pagination_up.png') no-repeat center center #f5f7fa;
+}
+div.pagination a.next{
+	width:32px; 
+	background:url('../img/newui/pagination_next.png') no-repeat center center #f5f7fa;
+}
+.pagination a:HOVER{
+	background-color:#d6eaff;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.pagination span,.pagination span.current{
+	color: #fff;
+	display:block;
+	float: left;
+	height:32px; 
+	line-height:32px;
+	padding:0px 12px;
+	margin-right:8px;
+	border-radius:2px;
+	background: #007dff;
+}
+.pagination span#allRecordSpan{
+	padding:0px;
+}
+/*
+    涓婁竴椤�鍜屼笅涓�〉
+*/
+.pagination .current.prev, .pagination .current.next{
+	color:#3C3C3C;
+	background:#fff;
+}
+
+/*
+ 瀹氬埗缈婚〉鎺т欢涓緭鍏ラ〉鏁扮殑杈撳叆妗嗘牱寮�
+*/
+.pagination .num_page
+{ 
+	background:none repeat scroll 0 0 #FFFFFF;
+	color:#3C3C3C;
+	margin:0 2px;	
+	width: 25px !important;	
+	text-align:left;
+}
+
+#Searchresult {
+	margin-top:15px;
+	margin-bottom:15px;
+	border:solid 1px #eef;
+	padding:5px;
+	background:#eef;
+  	width:60%;
+}
+#Searchresult p { margin-bottom:1.4em;}
+#Searchresult dt {
+    font-weight:bold;
+}
+#Searchresult dd {
+    margin-left:25px;
+}

@@ -1,0 +1,141 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2012-2020. All rights reserved.
+ */
+
+@CHARSET "UTF-8";
+.sear_aSearchInput{padding-left:190px;}
+/*-------搜索结果页面---------*/
+/*-----left-----*/
+.filterDownArrow{ background:url('../img/newui/filterdownarrow.png') no-repeat 0 6px}
+#wantAskLink{background:url(../img/ask_btnbg_en.png) no-repeat; }
+/*-----right-----*/
+#ssTabUl{
+    max-width: 850px;
+}
+#selectedText{
+    width: 180px;
+}
+#selectedText span {
+    width:160px;
+}
+.searslt{
+    width: 260px;
+}
+#selectedText .dividingLine{
+    left: 179px;
+}
+.triangle1{
+    right: 15px;
+}
+.switchNvlb_list{
+    width: 160px;
+}
+.HotSearch ul {width: 354px;}
+.HotSearch ul li{max-width: 108px;}
+.HotSearchSpan{ width:115px;}
+#categoryContentDiv ul li.more a{width: 50px !important;}
+/* groupSpaceSearchResult */
+.Tips {background-position: 5px 6px;}
+/*--搜索结果展示start--*/
+.subList ul li b{color:#b60005;}
+.clr-b605{color:#b60005;}
+.summary{margin:0px;}
+.subList .listmore{ width:38px;}
+/*--搜索结果展示end--*/
+/*--相关搜索属性--*/
+.asresultall .rs_top{margin-bottom:10px;}
+.asresultall .rs_top .rsr{ width:600px;float:left;margin-left:5px;}
+.asresultall .rs_top .rsr span{width:100px;}
+/*结果中搜索*/
+.withinExplain_title{padding-left: 15px;}
+.support_btn_90_28 {
+    background: url("../img/input_btn.gif") no-repeat scroll 0 -576px transparent;
+    width: 160px;
+}
+.support_btn_90_28:hover {
+  background: url("../img/input_btn.gif") no-repeat scroll 0 -548px transparent;
+}
+#top{position:fixed;bottom:20px;right:20px;background-color: #EEE;cursor: pointer;_position:absolute; _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.clientHeight-20));}
+/*搜索帮助提示*/
+.SearchHelp_tip{margin-left:240px;}
+.navi li{
+	background: none repeat scroll 0 0 transparent;
+    padding: 2px 0 0
+}
+/*-----搜索设置 begin-----*/
+#pageSize {
+	height: 20px;
+	line-height :0px;
+}
+/*-----搜索设置 end-----*/
+/*-------意见反馈------*/
+#expectedTip {
+    color: #B8B8B8;
+    font-size: 12px;
+}
+.yjfkblock .userBlock {
+    margin-left: 142px;
+    margin-top: -17px;
+    width: 200px;
+}
+.searbutton1{
+    margin-left:-44px;
+}
+.searbutton1:hover{
+    margin-left:-44px;
+}
+#authorSpan em {
+color: black;
+font-style: normal;
+font-weight: bold;
+}
+/*-------意见反馈------*/
+/*--搜索帮助页面--*/
+.search_main .shleft li a{width:202px; padding:0px 0px 0px 10px;}
+.search_main .shleft li .current{width:202px;padding:0px 0px 0px 10px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
+.search_main .shleft li .current:hover{width:202px;padding:0px 0px 0px 10px;}
+.search_main .shright .word{ font-size:13px; }
+.productRecommend {border: 1px solid #f0f0f0;}
+.productRecommend a:hover{text-decoration: underline;}
+.moreProduct{background: url(../img/newui/more.png) no-repeat 52px -2px transparent;padding-right:15px;color: #007dff;}
+.moreProduct:hover{color: #007af4;}
+.moreOffering{ background: url('../img/newui/more.png') no-repeat 38px 12px transparent; }
+/** add*/
+.bestbets_sList{margin-top:10px;padding:10px 5px;}
+/*--搜索结果展示start--*/
+.include_li{ padding: 0 20px 5px 20px;}
+.include_li li h4{line-height:1.5em;}
+.summary{margin:0px;}
+/* hedex 聚合样式*/
+.hedexList .hedexMore{ width:160px; background:url('../img/newui/more.png') no-repeat 144px center;}
+/*onebox 样式*/
+.oneBoxList ul li{line-height:22px;}
+.iKnow_robotinfo{
+     max-height: 72px;
+}
+/*无线网络信息中心样式*/
+.wireless_info>p{margin:0;}
+.wireless_title span{ background: url(../img/recommended.png) no-repeat 230px -4px transparent;}
+/*bestBets样式*/
+/**** ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ****/
+/****           bestbets 手机模板样式           ****/
+.tooltip-inner em{font-style: normal !important;}
+/*********知识图谱样式******/
+#knowledgeGraph .headItem td {
+    white-space: pre-wrap;
+    min-width:100px;
+}
+/*改版页面右侧*/
+@media screen and (min-width: 768px)
+{
+    #advice_feedback a{
+        background: url(../img/newui/advice_feedback_en.png) center center no-repeat;
+    }
+}
+#guessYouLike em{font-weight:normal ;}
+.hedexResult {
+    margin-bottom: 20px;
+}
+.datepicker TR.days TH{
+    padding: 0 11px;
+}

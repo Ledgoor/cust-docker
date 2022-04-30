@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{% endblock %}
+{% block styles %}{% endblock %}    
+
+{% block content_width %}
+    style="margin-top: 10;"
+{% endblock %}
+
+{% block spt_main_clear_style %}
+    style="margin-top: -10;"
+{% endblock %}
+
+
+{% block menu %}
+<div class="asCondition clear">
+    <ul id="ssTabUl">
+        <li><a onclick="history.back()">⬅️ Назад</a></li>
+        <li style="float: right;"><a id="edit" href="/admin/wiki/page/{{page_id}}/change/">✏️ Редактировать</a></li>
+    </ul>
+</div>
+{% endblock %}
+
+
+{% block content %}
+    <h2>{{page_name}}</h2>
+    <small class="text-muted">
+        Дата публикации: {{page.date_publish}}<br>
+        Поcледнее редактирование: {{page.date_edit}}
+    </small>
+    <div id='results'></div>
+    <hr>
+    {{content|safe}}
+{% endblock %}
