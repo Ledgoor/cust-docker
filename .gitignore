@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Temp
+temp/
+
+# Database
+docker/db/

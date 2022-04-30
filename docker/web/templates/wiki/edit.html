@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>{{page_id}} - Редактирование</title>
+    </head>
+    <body>
+        <h1>Редактирование - {{page_id}}</h1>
+
+        <form method="post" action="/wiki/{{page_id}}/save/">{% csrf_token %}
+            <textarea name="content" rows="20" cols="60">
+                {{content}}
+            </textarea>
+            <br><br>
+            <input type="submit" value="Сохранить страницу">
+        </form>
+    </body>
+</html>

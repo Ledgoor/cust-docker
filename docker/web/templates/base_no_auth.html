@@ -1,0 +1,321 @@
+
+	{% load static %}
+
+	<html>
+
+	<head>
+		
+		<title>My Portal</title>
+		
+		<script type="text/javascript" src="{% static "base/js/jquery-3.4.1.min.js" %}"></script>
+		<script type="text/javascript" src="{% static "base/js/jquery-3.3.1.js" %}"></script>
+		<script type="text/javascript" src="{% static "base/js/bootstrap.bundle.min.js" %}"></script>
+
+		<link href="{% static 'search/resource/3rdparty/bootstrap/4.4.1/css/bootstrap.min.css' %}" rel="stylesheet"  type="text/css" />
+		<link href="{% static 'search/carriersearch/pages/search/css/search.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'search/carriersearch/pages/search/css/search_en.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'search/carriersearch/pages/search/css/newui.css' %}" rel="stylesheet" type="text/css" />
+
+		<style>
+			img {
+				max-width: 100%;
+				height: auto !important;
+				max-height: 100%;
+			}
+			p {
+				word-break: break-all;
+			}
+			a {
+				color: lightseagreen;
+			}
+
+			table tr td.td2:last-child {
+				word-break: break-word;
+			}
+		</style>
+	
+
+	{% block ws %}
+		<script>
+			var app = {{ app }};
+			console.log('{{app}}')
+			var searchSocket = new WebSocket(
+    			'ws://' + window.location.host + '/ws/' + app + '/');
+		</script>
+	{% endblock %}
+		
+		<script type="text/javascript" src="{% static "base/js/ws.js" %}"></script>
+
+		<button hidden id="button-disconnected" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Disconnected</button>
+		
+		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+				<h5 class="modal-title" id="staticBackdropLabel">Соединение разорвано!</h5>
+				</div>
+				<div class="modal-body">
+				- Профилактические работы<br>
+				- Ошибка сервера<br>
+				- Истекшее соединение<br>
+				</div>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ладно</button>
+				<button type="button" class="btn btn-primary" onClick="window.location.reload();">Подключиться снова</button>
+				</div>
+			</div>
+			</div>
+		</div>
+	
+
+	</head>
+
+	<body>
+		<div id="show_header">
+			<link type="text/css" rel="stylesheet" href="{% static 'base/css/share.css' %}"/>
+			<div class="hw-header-v19" style="box-sizing:border-box;">
+				<div class="header-nav">
+					<div id="hw1_masthead_wrap">
+						<div id="hw1_subinfo" class="clearfix hidden-sm hidden-xs">
+							<div class="lowest-width">
+								<span>
+									
+									{% block status %}
+										<p id="status" class="navbar-toggle collapsed" rel="noopener noreferrer">🟡</p>
+									{% endblock %}
+
+									<a href="/admin/" class="navbar-toggle collapsed navbar" style="border-right: 1px solid #949494;line-height: 20px;height: 20px;border-radius:0px;">
+										{% if user.get_username %}
+											{{ user.get_username }}
+										{% else %}
+											Гость
+										{% endif %}
+									</a>
+									<p class="navbar-toggle collapsed" rel="noopener noreferrer">
+										{% if user.groups.first.name %}
+											{{user.groups.first.name}}
+										{% else %}
+											Группа не присвоена
+										{% endif %}
+										
+									</p>
+								</span>
+								
+								{% if user.is_authenticated %}
+									<ul id="hw1_masthead_subinfo_unlogin" class="clearfix">
+										<li>
+											<a id="aLogin" href="/admin/logout/" title="Sign out" rel="noopener noreferrer">
+												Выход
+											</a>
+										</li>
+									</ul>
+								{% else %}
+									<ul id="hw1_masthead_subinfo_unlogin" class="clearfix">
+										<li>
+											<a id="aLogin" href="/admin/login/" title="Sign in" rel="noopener noreferrer">
+												Вход
+											</a>
+										</li>
+									</ul>
+								{% endif %}
+							</div>
+						</div>
+						
+					</span>
+						<!-- header-->
+						{% if user.groups.all|length != 0 %}
+							<header>
+								<!-- header menu -->
+								<div class="navbar" style="height: 40px;">
+									<div class="nav-container lowest-width"> 
+
+										<style>
+											@media all and (min-width: 992px) {
+												.navbar .nav-item .dropdown-menu{ display: none; }
+												.navbar .nav-item:hover .nav-link{   }
+												.navbar .nav-item:hover .dropdown-menu{ display: block; }
+												.navbar .nav-item .dropdown-menu{ margin-top:0; position: absolute; width: 100%;}
+											}
+										</style>
+
+										<nav id="hw-navbar" style="height: 10px; top: -30px;">
+											<ul class="nav navbar-nav list-unstyled">
+												<li class="menu-list">
+													<a href="/" class="btn-next collapsed hw-navbar-text" data-section="hwmm0" rel="noopener noreferrer" >
+														Поиск
+													</a>
+												</li>
+
+
+												<li class="menu-list">
+													<a href="/wiki" class="btn-next collapsed hw-navbar-text" data-section="hwmm0" rel="noopener noreferrer" >
+														Вики
+													</a>
+												</li>
+
+
+												
+												<li class="menu-list hover-open nav-item dropdown">
+													<a class="btn-next collapsed hw-navbar-text nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">
+														Инструменты
+														<!-- <span class="iconfont icon-arrow-right hidden-md hidden-lg"></span> -->
+													</a>
+													<ul class="dropdown-menu">
+														<li><a class="dropdown-item" href="/reports"><s> Графики валидации</s> </a></li>
+														<li><a class="dropdown-item" href="/tools/device-provisioning">Подготовка устройств</a></li>
+														<li><a class="dropdown-item" href="/dismantling/">Демонтаж коммутаторов</a></li>
+													</ul>
+												</li>
+
+												<li class="menu-list hover-open nav-item dropdown">
+													<a class="btn-next collapsed hw-navbar-text nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">
+														Инвентарь
+														<!-- <span class="iconfont icon-arrow-right hidden-md hidden-lg"></span> -->
+													</a>
+													<ul class="dropdown-menu">
+														<li><a class="dropdown-item" href="/inventory/cities/">Аттрибуты городов</a></li>
+														<li><a class="dropdown-item" href="#"><s>Устройства</s></a></li>
+													</ul>
+												</li>
+
+												<li class="menu-list hover-open nav-item dropdown">
+													<a class="btn-next collapsed hw-navbar-text nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">
+														Система
+														<!-- <span class="iconfont icon-arrow-right hidden-md hidden-lg"></span> -->
+													</a>
+													<ul class="dropdown-menu">
+														<li><a class="dropdown-item" href="#"><s>Планировщик</s></a></li>
+														<li><a class="dropdown-item" href="#">Логи</a></li>
+													</ul>
+												</li>
+
+
+											</ul>
+										</nav>
+										<!-- 搜索框 -->
+										<div class="search-box pc-search-div search-hide" id="header-search">
+											<input type="text" class="input" autocomplete="off" name="ssUserText" id="pcSearchString" maxlength="200" />
+											<a href="javascript:;" id="searchHeader" class="btn-search">
+												<span class="hwic_search"></span>
+											</a>
+											<a href="#" class="btn-close">
+												<span class="hwic_cross"></span>
+											</a>
+											<div class="b-search-keyword"></div>
+										</div>
+										<!-- 右侧导航 -->
+										<div class="nav-right" id="pc-icon-btn">
+											<a href="javascript:;" data-target="#header-search" class="btn-open-search">
+												<!-- <span class="iconfont icon-search"></span> -->
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="mask-bg"></div>
+							</header>
+						{% endif %}
+
+					</div>
+				</div>
+			</div>
+
+
+
+
+	</div>
+	
+		<div id="layout_content" class="layout_content" style="min-height: 450px;">
+			
+			{% block menu %}{% endblock %}
+
+			<div class="spt_main clear" {% block spt_main_clear_style %}{% endblock %}>
+				<div class="clear">
+					
+					{% block content_left %}
+						<div id="search_left" class="search_main search_left"></div>
+					{% endblock %}
+					
+
+
+					{% block temp %}{% endblock %}
+
+					<div id="search_right" class="search_main search_right" {% block content_width %}{% endblock %}>
+						<div class="asresultall" style="padding-right: 40px;">
+							<!-- результаты ответа на сообщение -->
+								{% block content %}{% endblock %}
+							<!-- -->
+							<div class="clearboth"></div>
+							<div id="paginationAll" style="margin-top:10px;">
+								<div id="pagination"></div>
+							</div>
+							<div class="clearboth"></div>
+						</div>
+					</div>
+
+
+					
+						
+				</div>
+				<div id="search_right1" class="search_main search_right1">
+						<!-- это отступ от футера -->
+				</div>
+			</div>
+
+		{% if user.groups.all|length != 0 %}
+			<div id="show_footer" style="position:relative;">
+				<footer style="box-sizing:border-box;">
+					<div class="container-custom">
+						<div class="footer-nav row">
+							<!-- <div id="footer_0_NavigateRepeater_plNavi_1" class="col-md-3">
+								<h3 class="collapsed footer-list-1">
+									<a href="/">Старый интерфейс</a>
+								</h3>
+							</div> -->
+							<div id="footer_0_NavigateRepeater_plNavi_1" class="col-md-3">
+								<h3 class="collapsed footer-list-1">
+									<center><a href="#"><s>Облако</s></a></center>
+								</h3>
+							</div>
+							<div id="footer_0_NavigateRepeater_plNavi_1" class="col-md-3">
+								<h3 class="collapsed footer-list-1">
+									<center><a href="http://10.111.180.33:81/">GitLab</a></center>
+								</h3>
+							</div>
+							<div id="footer_0_NavigateRepeater_plNavi_2" class="col-md-3">
+								<h3 class="collapsed footer-list-2">
+									<center><a href="/chat">Тестовый чат</a></center>
+								</h3>
+							</div>
+							<div id="footer_0_NavigateRepeater_plNavi_3" class="col-md-3">
+								<h3 class="collapsed footer-list-3">
+									<center><a href="http://10.111.180.33:81/admin/system_info">Статус системы</a></center>
+								</h3>
+							</div>
+							<!-- <div id="footer_0_NavigateRepeater_plNavi_4" class="col-md-3">
+								<h3 class="collapsed footer-list-4">
+									<center><a href="/cron">Планировщик</a></center>
+								</h3>
+							</div> -->
+						</div>
+					</div>
+
+					<div class="copy">
+						<div class="container-custom">
+							<div class="copy-text">
+							<span>
+							<span id="footer_0_tCopyRight"><span>Открыто соединений: <block id="used_channels">{{global_variables.used_channels}}</block> &nbsp;</span>
+							</span>
+							<div class="line"></div>
+							</span>
+								<ul class="list-unstyled">
+									<li>
+										<a target="_blank" rel="noopener noreferrer" href="#">Страница на КБ</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		{% endif %}
+	
