@@ -1,17 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}{% endblock %}
-{% block styles %}{% endblock %}    
+{% block title %}<title>Cust - Wiki</title>{% endblock %}
 
-{% block content_width %}
-    style="margin-top: 10;"
-{% endblock %}
-
-{% block spt_main_clear_style %}
-    style="margin-top: -10;"
-{% endblock %}
-
+{% block content_width %}style="margin-top: 10;"{% endblock %}
 
 {% block menu %}
 <div class="asCondition clear">
@@ -29,7 +21,6 @@
         Дата публикации: {{page.date_publish}}<br>
         Поcледнее редактирование: {{page.date_edit}}
     </small>
-    <div id='results'></div>
     <hr>
     {{content|safe}}
 {% endblock %}

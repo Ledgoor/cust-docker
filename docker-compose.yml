@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+    
+    web:
+        container_name: web
+        build: ./docker/web/
+        env_file: env/cust.env
+        restart: on-failure
+        ports: 
+            - '8000:8000'
+        volumes: 
+            - ./docker/web:/data/projects/portal_v3/docker/web
+        depends_on:
+            - redis
+            - db
+
+    redis:
+        container_name: redis
+        restart: on-failure
+        image: redis
+        ports:
+            - 6379:6379
+
+    nginx:
+        container_name: nginx
+        restart: on-failure
+        build:
+            context: ./docker/nginx
+            dockerfile: Dockerfile
+        volumes: 
+            - ./docker/web/static/:/static/
+            - ./docker/web/media/:/media/
+            - ./docker/nginx/logs/:/var/log/nginx/
+            - ./docker/nginx/conf/:/etc/nginx/conf.d/
+        ports:
+            - "80:80"
+
+    db:
+        container_name: db
+        image: postgres
+        restart: on-failure
+        env_file: env/postgres.env
+        volumes:
+            - ./docker/db/data/:/var/lib/postgresql/data/
+
+    adminer:
+        container_name: adminer
+        image: adminer
+        restart: on-failure
+        ports:
+            - 8002:8080

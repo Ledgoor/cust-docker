@@ -1,0 +1,52 @@
+<div id="show_header">
+    <div class="hw-header-v19" style="box-sizing:border-box;">
+        <div class="header-nav">
+            <div id="hw1_masthead_wrap">
+                
+                <div id="hw1_subinfo" class="clearfix hidden-sm hidden-xs">
+                    <div class="lowest-width">
+                        <span>
+                            {% block status %}
+                                <p id="status" class="navbar-toggle collapsed" rel="noopener noreferrer">🟡</p>
+                            {% endblock %}
+
+                            <a href="/admin/" class="navbar-toggle collapsed navbar" style="border-right: 1px solid #949494;line-height: 20px;height: 20px;border-radius:0px;">
+                                {% block navbar-username %}
+                                    {% if user.get_username %}
+                                        {{ user.get_username }}
+                                    {% else %}
+                                        Гость
+                                    {% endif %}
+                                {% endblock %}
+                            </a>
+                            <p class="navbar-toggle collapsed" rel="noopener noreferrer">
+                                {% block navbar-usergroup %}
+                                    {% if user.groups.first.name %}
+                                        {{user.groups.first.name}}
+                                    {% else %}
+                                        Группа не присвоена
+                                    {% endif %}
+                                {% endblock %}
+                            </p>
+                        </span>
+                    
+                        <ul id="hw1_masthead_subinfo_unlogin" class="clearfix">
+                            <li>
+                                {% if user.is_authenticated %}
+                                    <a id="aLogin" href="/admin/logout/" title="Sign out" rel="noopener noreferrer">Выход</a>
+                                {% else %}
+                                    <a id="aLogin" href="/admin/login/" title="Sign in" rel="noopener noreferrer">Вход</a>
+                                {% endif %}
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <!-- Если назначена хоть одна группа, то показываем меню в шапке -->
+                {% if user.groups.all|length != 0 %}
+                    {% block header-navbar %}{% include 'base/header-navbar.html' %}{% endblock %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

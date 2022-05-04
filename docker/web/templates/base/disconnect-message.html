@@ -1,0 +1,19 @@
+<button hidden id="button-disconnected" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Disconnected</button>
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Соединение разорвано!</h5>
+        </div>
+        <div class="modal-body">
+        - Профилактические работы<br>
+        - Ошибка сервера<br>
+        - Истекшее соединение<br>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ладно</button>
+        <button type="button" class="btn btn-primary" onClick="window.location.reload();">Подключиться снова</button>
+        </div>
+    </div>
+    </div>
+</div>

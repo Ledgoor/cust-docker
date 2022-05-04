@@ -1,0 +1,39 @@
+{% block html %}
+	<html>
+		{% block head %}
+			<head>
+				{% block title %}<title>Cust</title>{% endblock %}
+				{% block javascripts %}{% include 'base/javascripts.html' %}{% endblock %}
+				{% block styles %}{% include 'base/styles.html' %}{% endblock %}
+				{% block ws %}{% include 'base/ws.html' %}{% endblock %}
+				{% include 'base/header.html' %}
+			</head>
+		{% endblock %}
+
+		{% block body %}
+			<body>
+				<!-- Если назначена хоть одна группа, то показываем контент -->
+				{% if user.groups.all|length != 0 %}
+					<div id="layout_content" class="layout_content" style="min-height: 450px;">
+						{% block search %}{% include 'base/search-menu.html' %}{% endblock %}
+						<div class="spt_main clear" >
+							<div class="clear">
+								{% block content_left %}<div id="search_left" class="search_main search_left"></div>{% endblock %}
+								<div id="search_right" class="search_main search_right" {% block content_width %}{% endblock %}>
+									<div class="asresultall">
+											{% block content %}{% endblock %}
+									</div>
+								</div>	
+							</div>
+							<div id="search_right1" class="search_main search_right1">
+									<!-- это отступ от футера (белое от серого) -->
+							</div>
+						</div>
+					{% block footer %}{% include 'base/footer.html' %}{% endblock %}
+				{% else %}
+					<center>Пользователю не присвоена ни одна группа! Обратитесь к администраторам сайта!</center>
+				{% endif %}
+			</body>
+		{% endblock %}
+	</html>
+{% endblock %}
