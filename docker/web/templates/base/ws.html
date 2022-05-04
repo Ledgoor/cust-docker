@@ -1,0 +1,10 @@
+{% load static %}
+
+<script>
+    var app = {{ app }};
+    var searchSocket = new WebSocket(
+        'ws://' + window.location.host + '/ws/' + app + '/');
+</script>
+<script type="text/javascript" src="{% static "base/js/ws.js" %}"></script>
+
+{% block disconnect-message %}{% include 'base/disconnect-message.html' %}{% endblock %}

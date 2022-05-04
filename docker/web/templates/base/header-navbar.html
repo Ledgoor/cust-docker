@@ -1,0 +1,87 @@
+<header>
+    <div class="navbar" style="height: 40px;">
+        <div class="nav-container lowest-width"> 
+
+            <style>
+                @media all and (min-width: 992px) {
+                    .navbar .nav-item .dropdown-menu{ display: none; }
+                    .navbar .nav-item:hover .nav-link{   }
+                    .navbar .nav-item:hover .dropdown-menu{ display: block; }
+                    .navbar .nav-item .dropdown-menu{ margin-top:0; position: absolute; width: 100%;}
+                }
+            </style>
+
+            <nav id="hw-navbar" style="height: 10px; top: -30px;">
+                <ul class="nav navbar-nav list-unstyled">
+                    <li class="menu-list">
+                        <a href="/" class="btn-next collapsed hw-navbar-text" data-section="hwmm0" rel="noopener noreferrer" >
+                            Поиск
+                        </a>
+                    </li>
+
+
+                    <li class="menu-list">
+                        <a href="/wiki" class="btn-next collapsed hw-navbar-text" data-section="hwmm0" rel="noopener noreferrer" >
+                            Вики
+                        </a>
+                    </li>
+
+
+                    
+                    <li class="menu-list hover-open nav-item dropdown">
+                        <a class="btn-next collapsed hw-navbar-text nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Инструменты
+                            <!-- <span class="iconfont icon-arrow-right hidden-md hidden-lg"></span> -->
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/reports"><s> Графики валидации</s> </a></li>
+                            <li><a class="dropdown-item" href="/tools/device-provisioning">Подготовка устройств</a></li>
+                            <li><a class="dropdown-item" href="/dismantling/">Демонтаж коммутаторов</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-list hover-open nav-item dropdown">
+                        <a class="btn-next collapsed hw-navbar-text nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Инвентарь
+                            <!-- <span class="iconfont icon-arrow-right hidden-md hidden-lg"></span> -->
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/inventory/cities/">Аттрибуты городов</a></li>
+                            <li><a class="dropdown-item" href="#"><s>Устройства</s></a></li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-list hover-open nav-item dropdown">
+                        <a class="btn-next collapsed hw-navbar-text nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Система
+                            <!-- <span class="iconfont icon-arrow-right hidden-md hidden-lg"></span> -->
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><s>Планировщик</s></a></li>
+                            <li><a class="dropdown-item" href="#">Логи</a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+            </nav>
+            <!-- 搜索框 -->
+            <div class="search-box pc-search-div search-hide" id="header-search">
+                <input type="text" class="input" autocomplete="off" name="ssUserText" id="pcSearchString" maxlength="200" />
+                <a href="javascript:;" id="searchHeader" class="btn-search">
+                    <span class="hwic_search"></span>
+                </a>
+                <a href="#" class="btn-close">
+                    <span class="hwic_cross"></span>
+                </a>
+                <div class="b-search-keyword"></div>
+            </div>
+            <!-- 右侧导航 -->
+            <div class="nav-right" id="pc-icon-btn">
+                <a href="javascript:;" data-target="#header-search" class="btn-open-search">
+                    <!-- <span class="iconfont icon-search"></span> -->
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
