@@ -1,9 +1,10 @@
 # cust-docker
 
-This is a collection of custom scripts developed over time to automation of routine tasks, assembled on:
+Cross-platform users script toolkit - this is a collection of scripts, developed over time, to automation of routine tasks, assembled on:
 
 * Infrastructure: Docker-compose
 * Web servers: Nginx
+* Web apps: Django Channels Rest Framework
 * Databases: PostgreSQL, Redis
 
 The GitHub repository houses the components needed to build cust as a container. Images are will be built regularly using the code in that repository and are pushed to Docker Hub.
@@ -61,4 +62,7 @@ To check the version installed on your system run `docker --version` and `docker
 ```
 
 ## Demo
+...
+
+## Screenshots
 ...
