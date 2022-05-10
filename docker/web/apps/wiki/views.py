@@ -1,56 +1,49 @@
-from cgitb import reset
-from nis import cat
-from unicodedata import category
-from importlib.metadata import PackageNotFoundError
-from importlib.resources import contents
 import json
-from unittest import result
-from django.http import HttpResponse, HttpResponseRedirect
+from typing import Union
+from django.http import HttpResponseRedirect
 
 from django.shortcuts import render
 from django.utils.safestring import mark_safe
 from django.shortcuts import redirect
 
-from apps.wiki.models import Category, Page
+from .services import wiki_ws_action
+from .wiki_services import get_wiki_categories_menu, _get_page_view_data
+
+from .models import Category, Page
 
 # from apps.search.views import search
 
-def index(request):
-    """Рендерит страницу со списком страниц wiki"""
+def list_pages_view(request):
+    """Веб-сервис, отображающий все статьи wiki по категориям"""
     
-
-    def gen_left_menu():
-        pages = Page.objects.all()
-        categories = Category.objects.all()
-
-        result = ''
-        for category in categories:
-            pages_by_category_count = pages.filter(category=category.id).count()
-            action = "searchSocket.send(JSON.stringify({'message': ['filter_category', '" + str(category.id) + "']}));"
-            result += f'<a type="submit" onclick="{action}">{category.name} ({pages_by_category_count})</a><br>'
-        return result
-    left_menu = gen_left_menu()
+    wiki_categories_menu = get_wiki_categories_menu()
 
     return render(request, 'wiki/index.html', {
-        'app': f'{mark_safe(json.dumps("wiki"))}',
-        'left_menu': left_menu,
+        'app': mark_safe(json.dumps("wiki")),
+        'left_menu': wiki_categories_menu,
     })
 
-def view_page(request, page_id):
+def page_view(request, page_id):
+    '''Веб-сервис, показывающий заголовок и содержимое конкретной статьи по id'''
+
     try:
-        page = Page.objects.get(id=page_id)
-        content = page.content
-        page_name = page.name
-        return render(request, 'wiki/view.html', {
-                'app': f'{mark_safe(json.dumps("wiki"))}',
-                'page': page,
-                'page_id': page_id,
-                'page_name': page_name,
-                'content': content
-                }
-            )
+        data = _get_page_view_data(page_id)
+        return render(request, 'wiki/view.html', data)
     except Exception:
         return redirect('/admin/wiki/page/add/')
+
+def wiki(username: str, app: str, message: Union[str, list]) -> str:
+    '''
+        Веб-сокет - управление приложением Wiki.
+        Если переменная message - список, то выполняем нужную фильтрацию.
+        Если переменная message - строка, то выполняем поиск.
+    '''
+    
+    result = wiki_ws_action(message)
+    return result
+
+
+
 
 def edit_page(request, page_id):
     try:
@@ -74,60 +67,3 @@ def save_page(request, page_id):
         page = Page(id=page_id, content=content)
     page.save()
     return HttpResponseRedirect('/wiki/' + page_id + '/')
-
-
-
-def wiki(username, app, message):
-    '''
-        Управляем полученнными сообщениями
-        Если список то выполняем нужную фильтрацию
-        Если строка, то выполняем поиск
-    '''
-    
-    print('message', type(message), message)
-        
-    if isinstance(message, list) is True:
-        if message[0] == 'filter_category':
-            if message[1] != 'clear':
-                category_id = message[1]
-                return get_pages_by_category(category_id)
-            else:
-                return get_all_pages_sorted_by_categories()
-    else:
-        #иначе это что то ввели в строку поиска
-        result = search(username, app, message)
-
-    return result
-
-
-def get_pages_by_category(category_id):
-    category_name = Category.objects.get(id=category_id).name
-    pages = Page.objects.filter(category=category_id)
-    result = f'<h2>{category_name}</h2>'
-    if len(pages) == 0:
-        result += 'В этой категории нет записей.<hr>'
-    else:
-        for page in pages:
-            result += f'<a href="/wiki/{page.id}">{page.name}</a><br>'
-        result += '<hr>'
-    return result
-
-def get_all_pages_sorted_by_categories():
-    '''
-        Выводит страницы конкретной категории.
-        На входе id катергрии (int).
-        На выходе HTML-код со всеми записями в категории.
-    '''
-    categories = Category.objects.all()
-    result = ''
-    for category in categories:
-        pages = Page.objects.filter(category=category.id)
-        
-        result += f'<h2>{category.name}</h2>'
-        if len(pages) == 0:
-            result += f'В этой категории нет записей.<hr>'
-        else:
-            for page in pages:
-                result += f'<a href="/wiki/{page.id}">{page.name}</a><br>'
-            result += '<hr>'
-    return result
