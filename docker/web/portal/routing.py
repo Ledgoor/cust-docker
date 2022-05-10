@@ -6,9 +6,7 @@ from apps.websocket.consumers import GlobalConsumer
 from apps.chat.consumers import ChatConsumer
 from apps.wiki.consumers import WikiConsumer
 
-from channels.routing import ChannelNameRouter, ProtocolTypeRouter
-
-from apps.cron.consumers import PrintConsumer
+# from apps.cron.consumers import PrintConsumer
 
 application = ProtocolTypeRouter({
     'websocket': AuthMiddlewareStack(
@@ -18,8 +16,8 @@ application = ProtocolTypeRouter({
             re_path(r'ws/(?P<app>\w+)/(?P<argument>\w+\/)?$', GlobalConsumer.as_asgi()),
             ])
     ),
-    'channel': ChannelNameRouter({
-        'test_print': PrintConsumer.as_asgi(),
-    }),
+    # 'channel': ChannelNameRouter({
+    #     'test_print': PrintConsumer.as_asgi(),
+    # }),
 
 })

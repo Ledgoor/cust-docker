@@ -1,5 +1,7 @@
 import os
+import sys
 import environ
+from pathlib import Path
 
 #указываем главной директорией папку web
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,15 +28,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'channels',
     
+    'channels',
     'ckeditor',
     'ckeditor_uploader',
     'multiselectfield',
-    # 'beatserver',
     'apps.websocket',
     'apps.logging',
-    'apps.cron',
     'apps.chat',
     'apps.wiki',
 ]
