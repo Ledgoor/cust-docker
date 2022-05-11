@@ -1,15 +1,40 @@
-# cust-docker
+# 🙉 What's all the CUST?
 
-Cross-platform users script toolkit - this is a collection of scripts, developed over time, to automation of routine tasks, assembled on:
+Cross-platform users script toolkit - this is CMS, containing scripts, developed over time, to automation of routine tasks, assembled on:
 
 * Infrastructure: Docker-compose
 * Web servers: Nginx
-* Web apps: Django Channels Rest Framework
+* Web apps: Django Channels (JSON RPC API)
+* Frontend: HTML5 Bootstrap, jQuery
 * Databases: PostgreSQL, Redis
 
 The GitHub repository houses the components needed to build cust as a container. Images are will be built regularly using the code in that repository and are pushed to Docker Hub.
 
-## Quickstart
+## ⚡ Fast implementation
+
+**Step 1:** If not installed, download and install docker and docker-compose:
+* Get Docker - https://docs.docker.com/get-docker/ (see the **Dependencies** section)
+
+**Step 2:** Cloning the project:
+```bash
+    git clone -b release https://github.com/pvenv/cust-docker.git
+```
+
+**Step 3:** Creating **.env** files (see the **Env examples** section):
+
+**Step 4:** Running and usage the project:
+```bash
+    cd cust-docker
+    docker-compose up -d
+```
+
+The whole application will be available after a few minutes. Open the URL http://127.0.0.1/ in a web-browser.
+The default credentials are:
+* login: admin
+* password: admin
+
+
+## 🎉 Env examples
 
 Example env/cust.env file:
 ```bash
@@ -32,18 +57,6 @@ Example env/postgres.env file:
     POSTGRES_PASSWORD='db_passwrod'
 ```
 
-Installation:
-```bash
-    git clone -b release https://github.com/pvenv/cust-docker.git
-    cd cust-docker
-    docker-compose up -d
-```
-
-The whole application will be available after a few minutes. Open the URL http://127.0.0.1/ in a web-browser.
-The default credentials are:
-* login: admin
-* password: admin
-
 ## Dependencies
 
 This project relies only on *Docker* and *docker-compose* meeting these requirements:
@@ -56,7 +69,7 @@ To check the version installed on your system run `docker --version` and `docker
 ## Updating
 ...
 
-## Full data reset
+## Recreating containers with data removal
 ```bash
     docker-compose up --build --remove-orphans
 ```
