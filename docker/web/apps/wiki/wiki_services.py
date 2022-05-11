@@ -30,7 +30,7 @@ def _get_all_pages_sorted_by_categories():
         
         result += f'<h2>{category.name}</h2>'
         if len(pages) == 0:
-            result += f'В этой категории нет записей.<hr>'
+            result += f'There are no entries in this category.<hr>'
         else:
             for page in pages:
                 result += f'<a href="/wiki/{page.id}">{page.name}</a><br>'
@@ -42,7 +42,7 @@ def _get_pages_by_category(category_id: str) -> str:
     pages = Page.objects.filter(category=category_id)
     result = f'<h2>{category_name}</h2>'
     if len(pages) == 0:
-        result += 'В этой категории нет записей.<hr>'
+        result += 'There are no entries in this category.<hr>'
     else:
         for page in pages:
             result += f'<a href="/wiki/{page.id}">{page.name}</a><br>'

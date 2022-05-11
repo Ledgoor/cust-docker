@@ -11,6 +11,8 @@ from .wiki_services import get_wiki_categories_menu, _get_page_view_data
 
 from .models import Category, Page
 
+from portal.settings import env
+
 # from apps.search.views import search
 
 def list_pages_view(request):
@@ -21,6 +23,9 @@ def list_pages_view(request):
     return render(request, 'wiki/index.html', {
         'app': mark_safe(json.dumps("wiki")),
         'left_menu': wiki_categories_menu,
+
+        #FIXME
+        'VERSION': env('VERSION')
     })
 
 def page_view(request, page_id):
@@ -28,6 +33,10 @@ def page_view(request, page_id):
 
     try:
         data = _get_page_view_data(page_id)
+        
+        #FIXME
+        data['VERSION'] = env('VERSION')
+
         return render(request, 'wiki/view.html', data)
     except Exception:
         return redirect('/admin/wiki/page/add/')
