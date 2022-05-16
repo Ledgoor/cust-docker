@@ -39,15 +39,22 @@ The default credentials are:
 Example env/cust.env file:
 ```bash
     #BASE
-    LOCAL_IP='127.0.0.1'
-    SECRET_KEY='secret_key'
+    VERSION='0.0.2'
+    DEBUG='True'
+    LOCAL_IP='185.105.89.18'
+    SECRET_KEY='dm42@3kbj10b2gse&h%o)1ef&rn42k)e_a'
     TIME_ZONE='Asia/Yekaterinburg'
 
     #DATABASE
-    DB_HOST='db_host'
-    DB_NAME='db_name'
-    DB_USER='db_username'
-    DB_PASSWORD='db_password'
+    DB_HOST='db'
+    DB_NAME='web'
+    DB_USER='user_web'
+    DB_PASSWORD='custDB_P@ssw0rd'
+
+    #SEUPERUSER SETTINGS
+    DJANGO_SUPERUSER_EMAIL='admin@example.com'
+    DJANGO_SUPERUSER_USERNAME='admin'
+    DJANGO_SUPERUSER_PASSWORD='admin'
 ```
 
 Example env/postgres.env file:
@@ -79,3 +86,11 @@ To check the version installed on your system run `docker --version` and `docker
 
 ## Screenshots
 ...
+
+## Contributing
+
+If you are looking to contribute to Jitsi Meet, first of all, thank you!
+
+
+<br />
+<br />
