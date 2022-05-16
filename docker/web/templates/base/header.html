@@ -15,7 +15,7 @@
                                     {% if user.get_username %}
                                         {{ user.get_username }}
                                     {% else %}
-                                        Гость
+                                        Guest
                                     {% endif %}
                                 {% endblock %}
                             </a>
@@ -24,7 +24,7 @@
                                     {% if user.groups.first.name %}
                                         {{user.groups.first.name}}
                                     {% else %}
-                                        Группа не присвоена
+                                        Group not assigned
                                     {% endif %}
                                 {% endblock %}
                             </p>
@@ -33,9 +33,9 @@
                         <ul id="hw1_masthead_subinfo_unlogin" class="clearfix">
                             <li>
                                 {% if user.is_authenticated %}
-                                    <a id="aLogin" href="/admin/logout/" title="Sign out" rel="noopener noreferrer">Выход</a>
+                                    <a id="aLogin" href="/admin/logout/" title="Sign out" rel="noopener noreferrer">Sign out</a>
                                 {% else %}
-                                    <a id="aLogin" href="/admin/login/" title="Sign in" rel="noopener noreferrer">Вход</a>
+                                    <a id="aLogin" href="/admin/login/" title="Sign in" rel="noopener noreferrer">Sign in</a>
                                 {% endif %}
                             </li>
                         </ul>

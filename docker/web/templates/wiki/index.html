@@ -6,16 +6,12 @@
 
 {% block content_left %}
 <div id="search_left" class="search_main search_left" style="background: white; padding: 10px 20px; border-radius: 4px; margin-top: 10px;">
-    <center><h3><b>Выбор категории</b></h3></center>
-    
-    <!-- {% for category in categoryes %}
-        <a type="submit" onclick="searchSocket.send(JSON.stringify({'message': ['filter_category', '{{ category.id }}']}));">{{ category }}</a><br>    
-    {% endfor %} -->
+    <center><h3><b>Categories</b></h3></center>
 
     {{left_menu|safe}}
 
     <hr style="margin: revert;">
-    <center><a type="submit" onclick="searchSocket.send(JSON.stringify({'message': ['filter_category', 'clear']}));">Сбросить</a><br></center>
+    <center><a type="submit" onclick="searchSocket.send(JSON.stringify({'message': ['filter_category', 'clear']}));">Clear</a><br></center>
 
 </div>
 

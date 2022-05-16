@@ -1,5 +1,7 @@
 import os
+import sys
 import environ
+from pathlib import Path
 
 #указываем главной директорией папку web
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -10,7 +12,7 @@ environ.Env.read_env()
 
 SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = True
+DEBUG = env('DEBUG')
 
 global_variables = {}
 global_variables['DEBUG'] = DEBUG
@@ -20,21 +22,20 @@ ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1/*", f"http://{env('LOCAL_IP')}/*"]
 
 INSTALLED_APPS = [
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'channels',
     
+    'channels',
     'ckeditor',
     'ckeditor_uploader',
     'multiselectfield',
-    # 'beatserver',
     'apps.websocket',
     'apps.logging',
-    'apps.cron',
     'apps.chat',
     'apps.wiki',
 ]

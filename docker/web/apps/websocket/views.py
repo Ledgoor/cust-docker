@@ -13,14 +13,16 @@ def websocket(app, username, message):
     '''
     Маршрутизируем входящее сообщение в нужное приложение
     Тут только дефолтные, остальноые в consumers в каждом приложении
+    
+    Самостоятельные приложения: чат.
     '''
 
-    # if app == 'search':
-    #     result = search(username, app, message)
-    if app == 'chat':
-        result = chat(message)
-    elif app == 'wiki':
-        result = wiki(username, app, message)
+    apps = {
+        'wiki': wiki,
+        # 'search': search,
+    }
+
+    if app in apps:
+        return apps[app](app, username, message)
     else:
         return f'Приложение: {app}, Сообщение: {message} - нет инструкций!'
-    return result

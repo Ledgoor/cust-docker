@@ -4,17 +4,17 @@
             <li>
                 <input type="radio" class="noBorder">
                 <label class="radio_ico"></label>  
-                <label class="label1_common" style="float: right;">База знаний</label>
+                <label class="label1_common" style="float: right;">Confluence</label>
             </li>
             <li>
                 <input type="radio" class="noBorder">
                 <label class="radio_ico"></label>  
-                <label class="label1_common" style="float: right;">Вики</label>
+                <label class="label1_common" style="float: right;">Local wiki</label>
             </li>
             <li>
                 <input type="radio" class="noBorder" checked="checked">
                 <label class="radio_ico"></label>  
-                <label class="label1_common" style="float: right;">Оба</label>
+                <label class="label1_common" style="float: right;">Both</label>
             </li>
         </ul>
         
@@ -35,7 +35,7 @@
 
                         <div class="navDiv">
                             <div id="selectedText">
-                                <span disabled>Пространство</span>
+                                <span disabled>Space</span>
                                 <div class="triangle1"></div>
                                 <span class="dividingLine"></span>
                             </div>
@@ -46,16 +46,17 @@
                 </div>		
         </div>
     </div>		
-    
-    <!-- <div class="asCondition clear">
-        <ul id="ssTabUl">
+
+    <div class="asCondition clear">
+        {% block menu %}{% endblock %}
+        <!-- <ul id="ssTabUl">
             <li class="tablinks current" onclick="openTab(event, 'Latest')"><a href="#">Последнее</a></li>
             <li class="tablinks" onclick="openTab(event, 'Tips')"><a href="#">Заметки</a></li>
             <li class="tablinks" onclick="openTab(event, 'Articles')"><a href="#">Статьи</a></li>
             <li class="tablinks" onclick="openTab(event, 'Translations')"><a href="#"><s>Переводы</s></a></li>
             <li class="tablinks" onclick="openTab(event, 'Movies')"><a href="#" >Видео</a></li>
-        </ul>
-    </div> -->
+        </ul> -->
+    </div>
     
 </div>
 
