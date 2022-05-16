@@ -12,7 +12,7 @@ environ.Env.read_env()
 
 SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = True
+DEBUG = env('DEBUG')
 
 global_variables = {}
 global_variables['DEBUG'] = DEBUG
@@ -22,6 +22,7 @@ ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1/*", f"http://{env('LOCAL_IP')}/*"]
 
 INSTALLED_APPS = [
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
